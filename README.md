@@ -6,13 +6,13 @@
 
 BOLSTER helps pretrained convolutional neural networks recover accuracy when their inputs become noisy. It combines stochastic weight perturbations with a covariance-guided update schedule to reduce the cost of supervised model adaptation. Across the paper's three benchmarks, it delivers **1.6–4.2× faster adaptation** and **1.7–2.2× lower peak training memory** than full backpropagation retraining.
 
-[Results](#results-at-a-glance) · [Installation](#installation) · [Using this repository](#using-this-repository) · [Figures](#step-3-recreate-the-figures) · [Citation](#citation)
+[Results](#results) · [Installation](#installation) · [Using this repository](#using-this-repository) · [Figures](#step-3-recreate-the-figures) · [Citation](#citation)
 
 ![Per-benchmark comparison of adaptation speedup versus backpropagation and relative accuracy gain over the unadapted model. BOLSTER is shown in green as Ours.](plots/figures/per_benchmark_speedup_retention.png)
 
 *Paper results averaged over Gaussian input-noise variances from 0.1 to 1.0. Left: speedup relative to full backpropagation retraining. Right: relative gain in mean accuracy over the unadapted model. “Ours” denotes BOLSTER.*
 
-## Why BOLSTER?
+## Motivation
 
 ![Figure 1 from the paper: increasing Gaussian input noise changes model predictions and pixel-intensity distributions across MNIST, CIFAR-10, and Tiny-ImageNet.](plots/figures/paper_figure1_noise_illustration.png)
 
@@ -27,7 +27,7 @@ Retraining a deployed network can recover accuracy, but backward passes and stor
 
 The covariance schedule is deterministic and conditioned on the starting checkpoint; it does not estimate uncertainty from live loss measurements. The paper studies **supervised recalibration under additive Gaussian input noise**. Adaptation to other corruption types remains an open research direction.
 
-## Results at a glance
+## Results
 
 The following values summarize the **paper's reported experiments**. Accuracy is mean top-1 accuracy across the ten noise variances, $\sigma^2 \in \{0.1, 0.2, \ldots, 1.0\}$.
 
@@ -41,7 +41,7 @@ These correspond to **1.8%, 176.7%, and 323.7% relative gains in mean accuracy**
 
 Full BP retraining retains the highest accuracy. BOLSTER offers a tradeoff between recovered accuracy, adaptation time, and memory. The paper reports measurements on an NVIDIA A6000 GPU; its training speedups should not be interpreted as inference speedups or expected notebook runtimes.
 
-## What is included
+## Repository tree
 
 This release supports **checkpoint evaluation and analysis of the reported results**. The `reproduce_*.ipynb` notebooks load stored weights, evaluate them on noisy inputs, and export metrics. They do not train models or rerun the BOLSTER adaptation procedure, and they do not remeasure training time, energy, or peak training memory.
 

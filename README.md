@@ -119,7 +119,7 @@ The loader uses the sorted names of the `train/` class directories to map labels
 
 ### Step 2: Recreate the accuracy scores
 
-Open the notebook corresponding to the method and benchmark you want to reproduce, then **run all cells in order**. Each notebook loads the included checkpoints and computes the accuracy scores on noisy inputs.
+Open the notebook corresponding to the method and benchmark you want to reproduce, then run all cells in order. Each notebook loads the included checkpoints and computes the accuracy scores on noisy inputs.
 
 | Method            |                         LeNet-5 / MNIST                         |                          ResNet-20 / CIFAR-10                          |                              MobileNet-v1 / Tiny-ImageNet                              |
 | :---------------- | :-------------------------------------------------------------: | :---------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |

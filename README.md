@@ -8,9 +8,9 @@ BOLSTER helps pretrained convolutional neural networks recover accuracy when the
 
 [Results](#results) · [Installation](#installation) · [Using this repository](#using-this-repository) · [Figures](#step-3-recreate-the-figures) · [Citation](#citation)
 
-![Per-benchmark comparison of adaptation speedup versus backpropagation and relative accuracy gain over the unadapted model. BOLSTER is shown in green as Ours.](plots/figures/per_benchmark_speedup_retention.png)
+![Per-benchmark comparison of adaptation speedup versus backpropagation and accuracy gain over the unadapted model in percentage points. BOLSTER is shown in green as Ours.](plots/figures/per_benchmark_speedup_retention.png)
 
-*Paper results averaged over Gaussian input-noise variances from 0.1 to 1.0. Left: speedup relative to full backpropagation retraining. Right: relative gain in mean accuracy over the unadapted model. “Ours” denotes BOLSTER.*
+*Paper results averaged over Gaussian input-noise variances from 0.1 to 1.0. Left: speedup relative to full backpropagation retraining. Right: gain in mean accuracy over the unadapted model, in percentage points (pp). “Ours” denotes BOLSTER.*
 
 ## Motivation
 
@@ -37,7 +37,7 @@ The following values summarize the **paper's reported experiments**. Accuracy is
 | ResNet-20 / CIFAR-10         |    19.14% | **52.95%** |             78.34% |           **2.6×** |              **2.0×** |
 | MobileNet-v1 / Tiny-ImageNet |     8.00% | **33.88%** |             50.35% |           **4.2×** |              **1.7×** |
 
-These correspond to **1.8%, 176.7%, and 323.7% relative gains in mean accuracy** over the unadapted models, respectively. Relative gain is `100 × (mean BOLSTER accuracy / mean unadapted accuracy − 1)`; it is distinct from a percentage-point increase.
+These correspond to **1.7, 33.8, and 25.9 percentage-point gains in mean accuracy** over the unadapted models, respectively. The gain is `mean BOLSTER accuracy − mean unadapted accuracy`; it is an absolute difference, not a relative (percent) change.
 
 Full BP retraining retains the highest accuracy. BOLSTER offers a tradeoff between recovered accuracy, adaptation time, and memory. The paper reports measurements on an NVIDIA A6000 GPU; its training speedups should not be interpreted as inference speedups or expected notebook runtimes.
 
@@ -142,7 +142,7 @@ The result-based plots recreate the paper figures from the bundled timestamped w
 | :---------------------------------------------------------------------------------- | :-------------------------------------------------------- | :-------------------------------------------- |
 | [Accuracy](plots/accuracy_plot.ipynb)                                                | Accuracy across noise variances                           | Result workbooks                              |
 | [Training time](plots/training_time_plot.ipynb)                                      | Recorded adaptation time and speedup                      | Result workbooks                              |
-| [Accuracy / efficiency tradeoff](plots/accuracy_training_time_memory_tradeoff.ipynb) | Relative accuracy gains and adaptation speedups           | Result workbooks                              |
+| [Accuracy / efficiency tradeoff](plots/accuracy_training_time_memory_tradeoff.ipynb) | Percentage-point accuracy gains and adaptation speedups   | Result workbooks                              |
 | [Weight changes](plots/weight_change_plot.ipynb)                                     | Parameter similarity to BP and retained accuracy          | Checkpoints and result workbooks              |
 | [Covariance schedule](plots/step_gain_and_covariance.ipynb)                          | Perturbation magnitude and update coefficient over epochs | Clean checkpoints and explicit settings below |
 

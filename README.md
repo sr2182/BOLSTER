@@ -43,8 +43,7 @@ Full BP retraining retains the highest accuracy. BOLSTER offers a tradeoff betwe
 
 ## Repository tree
 
-This release supports **checkpoint evaluation and analysis of the reported results**. The `reproduce_*.ipynb` notebooks load stored weights, evaluate them on noisy inputs, and export metrics. They do not train models or rerun the BOLSTER adaptation procedure, and they do not remeasure training time, energy, or peak training memory.
-
+This release supports checkpoint evaluation and analysis of the reported results. The `reproduce_*.ipynb` notebooks load stored weights, evaluate them on noisy inputs, and export metrics.
 ```text
 BOLSTER/
 ├── lenet5_mnist/
@@ -79,7 +78,7 @@ python -m pip install torch torchvision numpy pandas pillow openpyxl matplotlib 
 mkdir -p data
 ```
 
-The notebooks default to **CPU evaluation**. For GPU evaluation, install a compatible build using the [official PyTorch installation selector](https://pytorch.org/get-started/locally/) and set `DEVICE = "cuda"` in the notebook's **Settings** cell. On Windows, activate the virtual environment with `.venv\Scripts\activate` instead of `source`.
+The notebooks default to CPU evaluation. For GPU evaluation, install a compatible build using the [official PyTorch installation selector](https://pytorch.org/get-started/locally/) and set `DEVICE = "cuda"` in the notebook's **Settings** cell. On Windows, activate the virtual environment with `.venv\Scripts\activate` instead of `source`.
 
 ## Using this repository
 
@@ -95,7 +94,7 @@ Download the datasets for your chosen benchmarks and place them in the repositor
 | CIFAR-10          | ResNet-20    | `data/cifar-10-batches-py/` |
 | Tiny-ImageNet-200 | MobileNet-v1 | `data/tiny-imagenet-200/`   |
 
-For **MNIST and CIFAR-10**, run the following command from the repository root to download and arrange both datasets automatically. You can keep only the dataset you need in `(MNIST, CIFAR10)`. The evaluation notebooks can also download these datasets if they are missing.
+For **MNIST** and **CIFAR-10**, run the following command from the repository root to download and arrange both datasets automatically. You can keep only the dataset you need in `(MNIST, CIFAR10)`. The evaluation notebooks can also download these datasets if they are missing.
 
 ```bash
 from torchvision.datasets import CIFAR10, MNIST
@@ -134,7 +133,7 @@ For a smaller first run, set `NOISE_LEVELS = [0.1]` in the **Settings** cell. Re
 
 ### Step 3: Recreate the figures
 
-In JupyterLab, open the corresponding notebook in `plots/` and **run all cells in order**. When the kernel runs from `plots/`, the generated figures are saved in `plots/figures/`.
+In JupyterLab, open the corresponding notebook in `plots/` and run all cells in order. When the kernel runs from `plots/`, the generated figures are saved in `plots/figures/`.
 
 The result-based plots recreate the paper figures from the bundled timestamped workbooks. They do not automatically select the `_reproduced.xlsx` files generated in Step 2. You can also [browse the saved figures](plots/figures/) directly.
 
@@ -156,4 +155,4 @@ If you use BOLSTER in your research, please cite the accompanying paper:
 
 Full citation metadata and a public paper link are not included in this release.
 
-For questions about the released artifacts or reproducibility, please [open an issue](https://github.com/sr2182/BOLSTER/issues) with the notebook name, environment details, and steps to reproduce the problem.
+For questions about the released artifacts or reproducibility, please open an issue with the notebook name, environment details, and steps to reproduce the problem.

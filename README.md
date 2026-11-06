@@ -37,7 +37,7 @@ The following values summarize the paper's reported experiments. Accuracy is mea
 | ResNet-20 / CIFAR-10         |    19.14% | **52.95%** |             78.34% |           **2.6×** |              **2.0×** |
 | MobileNet-v1 / Tiny-ImageNet |     8.00% | **33.88%** |             50.35% |           **4.2×** |              **1.7×** |
 
-These correspond to **1.7, 33.8, and 25.9 percentage-point gains in mean accuracy** over the unadapted models, respectively. The gain is computed as `mean BOLSTER accuracy − mean unadapted accuracy`.
+These correspond to **1.7, 33.8, and 25.9 percentage-point gains in mean accuracy** over the unadapted models, respectively. The gain is computed as `mean(BOLSTER accuracy) − mean(unadapted accuracy)`.
 
 Full BP retraining retains the highest accuracy. BOLSTER offers a tradeoff between recovered accuracy, adaptation time, and memory. The paper reports measurements on an NVIDIA A6000 GPU; its training speedups should not be interpreted as inference speedups or expected notebook runtimes.
 
